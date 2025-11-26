@@ -144,3 +144,110 @@ NOT EVERY GSI IS BUG FREE - Root is required to fix some of the
 
 
 
+
+<h4>How to Fix WiFi/Internet/Network not working in GSI ROM</h4>
+
+STEP 1: Install Android SDK
+
+You have to install the Android SDK Platform Tools on your PC. This is the official ADB and Fastboot binary provided by Google and is the only recommended one. So download it and then extract it to any convenient location on your PC. Doing so will give you the platform-tools folder, which will be used throughout this guide.
+
+
+STEP 2: Enable USB Debugging
+
+Next up, you will have to enable USB Debugging so that your device is recognizable by the PC in ADB mode. This will then allow you to execute the desired ADB Commands. So head over to Settings > About Phone > Tap on Build Number 7 times > Go back to Settings > System > Advanced > Developer Options > Enable USB Debugging.
+
+STEP 3: Execute ADB Shell Command
+
+1.Connect your device to the PC via a USB cable. Make sure USB Debugging is enabled.
+
+2.Then head over to the platform-tools folder, type in CMD in the address bar, and hit Enter.
+
+3.This will launch the Command Prompt. So type in the below commands in the CMD window:
+
+
+
+	adb shell settings put global restricted_networking_mode 0
+
+
+STEP 4: If Step 3 Didn’t Work
+If the aforementioned command didn’t work out, then root your GSI ROM via Magisk and proceed with the below steps:
+
+1.Download and install the Termux app from F-Droid.
+2.Then launch it and execute the following commands
+
+	adb shell settings put global restricted_networking_mode 0
+
+
+	su -c settings put global restricted_networking_mode 0
+
+	su settings put global restricted_networking_mode 0
+
+
+
+3.The underlying network issue should now be fixed.
+
+
+That’s it. This should fix the WiFi/Internet/Network not working issue in GSI ROM. If you have any queries concerning the aforementioned steps, do let us know in the comments. We will get back to you with a solution at the earliest.
+
+<br>
+
+How to Fix Calling Issues in GSI ROM
+
+1.Head over to Settings > Phh Treble Settings > IMS Features > Install IMS APK for Qualcomm Vendor.
+2.The APK will now be downloaded. Once done, open it and enable Unknown Sources for the MTP Host.
+3.The app will now be installed. Once done, enable “Request IMS Network” and “Force the presence of 4G Calling Setting”
+4.Next up, open Dialer > Type *#*#4636#*#* > This will open the Testing Menu.
+5.Go to the Phone Information > Select NR/LTE under Preferred Network Type.
+6.Finally, restart the device and the calling feature will now work well and good.
+
+Gsi Enable / Disable Command
+ 
+Finally, type in the below command to make your device reboot to GSI every time.
+adb shell gsi_tool enable
+How to Undo this Change
+If you want to revert the DSU Sideloader to its earlier working state i.e. switching between stock/custom and GSI ROM after every reboot, then carry out STEPS 1 to 4 listed above and execute the below command:
+
+adb shell gsi_tool disable
+
+
+Fix Fast Charging not working in GSI ROM
+magisk module flash
+
+https://drive.google.com/file/d/1KguCeLD-VHShm0MYzKhYrsAv-rZAuJeA/view
+
+
+
+
+How to Fix Brightness Slider not working in GSI ROM
+
+1.To begin with, head over to the Settings menu on your device.
+2.Then go to Misc Features and checkmark Force alternative backlight scale.
+3.Finally, reboot your device and the issue should be rectified
+
+
+
+headphone jack fix gsi
+
+
+adb shell
+su 
+
+setprop persist.sys.overlay.devinputjack true
+
+
+active partition check fastboot 
+fastboot getvar all
+
+
+resize Product Partition
+After that, type in the below command to set the size of the product partition to 0
+
+fastboot resize-logical-partition product_a 0x0
+
+(bootloader) partition-size:product_a:0x0
+
+fastboot delete-logical-partition vendor
+
+Then recreate it using the below command:
+
+fastboot create-logical-partition vendor 0
