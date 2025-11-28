@@ -10,7 +10,7 @@ PLEASE READ RELATED SECTION IN README CAREFULLY AND THROUGHLY.
 	Use this script at your OWN RISK!
 
 
- If Your Device Support Project Treble You Can Continue...
+# If Your Device Support Project Treble You Can Continue...
 
 • <a href ="/src/Treble_Info_5.2.3.apk" > Treble Info</a> 
 <br>
