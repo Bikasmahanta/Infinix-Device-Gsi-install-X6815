@@ -167,6 +167,24 @@ Once in recovery select Wipe and Factory Reset
 
 
 
+
+
+
+
+
+# Tested GSi : Evelution X Gsi Android 14 (Unofficial)
+
+Issues : Network problem In Starting No internet
+Fix Internet Issue : 
+
+"adb shell settings put global restricted_networking_mode 0"
+
+Bug 🪲 : Incoming Call Not Showing Call,Anathor Mobile is  Ringing But Not Any Pop-Up In My Device
+Didn't Try Any Other Call Ui App Its , Vendor Problem Or Something.
+
+
+
+
 <h4>How to Fix WiFi/Internet/Network not working in GSI ROM</h4>
 
 STEP 1: Install Android SDK
